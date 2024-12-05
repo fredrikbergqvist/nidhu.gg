@@ -1,0 +1,16 @@
+{%- css %}.postlist { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }{% endcss %}
+
+<article class="component-list">
+	<div class="content">
+{%- for post in postslist | reverse %}
+		<section class="component-item">
+			<a class="" href="{{ post.url }}">
+				<img src="{{ post.data.image }}" alt="{{ post.data.title }}" width="200" height="200" />
+					<h3 class="sr-only">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</h3>
+					<p class="sr-only">{{ post.data.description | safe }}</p>
+			</a>
+		</section>
+
+{%- endfor %}
+	</div>
+</article>

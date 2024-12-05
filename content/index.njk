@@ -1,0 +1,33 @@
+---js
+const eleventyNavigation = {
+	key: "Home",
+	order: 1
+};
+
+const numberOfLatestPostsToShow = 20;
+---
+{%- css %}{% include "public/css/start-page.css" %}{%- endcss %}
+
+<section>
+	<div class="content">
+		<p>This is a collection of components that I have created for my own projects. I have decided to share them with you, so you can use them in your projects as well.</p>
+		<p>Feel free to use them in your projects, and if you have any feedback or suggestions, please let me know.</p>
+	</div>
+</section>
+
+
+{% set postsCount = collections.components | length %}
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+
+{% set postslist = collections.components | head(-1 * numberOfLatestPostsToShow) %}
+{% set postslistCounter = postsCount %}
+{% include "componentlist.njk" %}
+
+{# List every content page in the project #}
+{#
+<ul>
+	{%- for entry in collections.all %}
+	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
+	{%- endfor %}
+</ul>
+#}

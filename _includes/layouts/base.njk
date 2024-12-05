@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ metadata.language }}" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+		<link rel="preconnect" href="https://res.cloudinary.com" />
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+		<meta name="author" content="Fredrik Bergqvist" />
+		<link rel="canonical" href="https://nidhu.gg{{ page.url }}">
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="theme-color" content="#333" />
+		<meta name="generator" content="Eleventy">
+
+		{% css %} {% include "public/css/index.css" %}{% endcss %}
+		<style>{% getBundle "css" %}</style>
+		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+
+		{%- js %}{% include "node_modules/@nidhugg/modal/src/modal.js" %}{% endjs %}
+	</head>
+	<body class="">
+		<a href="#main-content" class="sr-only">Skip to main content</a>
+
+		<header id="main-header">
+			<a href="index.njk" title="Start" class="content">
+				<img eleventy:ignore src="/img/dark-bg-dragon.svg" alt="Nidhugg components dragon logo" width="544" height="570" />
+				<h2>Nidhugg Components</h2>
+			</a>
+		</header>
+
+		<main id="main-content" class="">
+				{{ content | safe }}
+		</main>
+
+		<footer class="">
+			<div class="content">
+
+			</div>
+		</footer>
+
+		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
+			{% js %} {% include "public/script/isJs.js" %}			{% endjs %}
+		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+	</body>
+</html>

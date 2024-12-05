@@ -1,0 +1,28 @@
+.component-item{
+	width: 100%;
+	max-width: 500px;
+
+	a{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		background-color: var(--nidhugg-base-400);
+		height: 300px;
+		padding: 1rem;
+		border-radius: var(--nidhugg-rounded);
+	}
+
+	picture{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+
+	}
+	img{
+		width: auto;
+		height: auto;
+		max-height: calc(300px - 2rem);
+	}
+}
