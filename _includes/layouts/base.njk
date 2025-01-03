@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
-		<link rel="preconnect" href="https://res.cloudinary.com" />
 		<title>{{ title or metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
 		<meta name="author" content="Fredrik Bergqvist" />
@@ -17,7 +16,10 @@
 		<style>{% getBundle "css" %}</style>
 		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
-		{%- js %}{% include "node_modules/@nidhugg/modal/src/modal.js" %}{% endjs %}
+		{%- js %}
+			{% include "public/script/nidhugg/modal/nidhuggModal.js" %}
+			{% include "public/script/nidhugg/imageModal/nidhuggImageModal.js" %}
+		{% endjs %}
 	</head>
 	<body class="">
 		<a href="#main-content" class="sr-only">Skip to main content</a>

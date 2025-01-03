@@ -1,0 +1,22 @@
+{
+	"name": "@nidhugg",
+	"version": "0.4.0",
+	"exports": {
+		".": "./public/script/nidhugg/index.js",
+		"./nidhuggModal": "./public/script/nidhugg/modal/nidhuggModal.js"
+	},
+	"author": "Fredrik Bergqvist",
+	"description": "A modal dialog web component",
+	"license": "MIT",
+	"publish": {
+		"include": [
+			"LICENSE",
+			"public/script/nidhugg/**/*.md",
+			"public/script/nidhugg/**/*.js",
+			"public/script/nidhugg/**/*.ts"
+		],
+		"exclude": [
+			"test/**/*"
+		]
+	}
+}

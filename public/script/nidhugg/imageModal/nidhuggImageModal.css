@@ -1,0 +1,39 @@
+.nidhugg-image-modal__image{
+	cursor: pointer;
+}
+
+.nidhugg-image_modal__dialog{
+	display: none;
+	transition: all 0.3s ease-in-out;
+	opacity: 1;
+	transform: scale(1);
+	position: fixed;
+	z-index: 10;
+	width: max-content;
+	padding: 0;
+	background-color: var(--nidhugg-base-100, #2A303C);
+	color: var(--nidhugg-base-content, #fefefe);
+	border-radius: var(--nidhugg-rounded, 0.5rem);
+	border: 2px solid var(--nidhugg-neutral, #1C212B);
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+.nidhugg-image_modal__dialog[open]::backdrop {
+	opacity: 0.6;
+	background-color: #000;
+}
+.nidhugg-image_modal__dialog[open] {
+	@starting-style{
+		opacity: 0;
+		transform: scale(0);
+	}
+	display: block;
+}
+
+.nidhugg-image_modal__dialog figure {
+	background-color: var(--nidhugg-base-100, #2A303C);
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}

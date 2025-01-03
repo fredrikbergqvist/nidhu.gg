@@ -12,7 +12,9 @@
 		"start-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/ --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+		"prettier:write": "yarn prettier --config ./.prettierrc --write ./**/*.{ts,css,js,html} --log-level warn",
+		"prettier:check": "yarn prettier --config ./.prettierrc --check public/script/nidhugg/**/*.{ts,css,js,html} --log-level warn"
 	},
 	"repository": {
 		"type": "git",
@@ -36,7 +38,9 @@
 		"daisyui": "4.12.11",
 		"luxon": "^3.5.0",
 		"zod": "^3.23.8",
-		"zod-validation-error": "^3.3.1"
+		"zod-validation-error": "^3.3.1",
+		"prettier": "3.4.1",
+		"release-please": "16.15.0"
 	},
 	"dependencies": {
 		"@nidhugg/modal": "npm:@jsr/nidhugg__modal@^0.4.0"
