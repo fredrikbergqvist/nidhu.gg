@@ -1,5 +1,6 @@
 /**
  * @class NidhuggImageModal
+ * @module
  * @extends HTMLElement
  *
  * @public

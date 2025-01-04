@@ -14,7 +14,11 @@ export const outDir = `${
 async function bundleAllJs() {
 	const jsFiles = (await GetAllFiles(inDir))
 		.filter((f) => f.endsWith(".js"));
-	let concatenatedContent = "";
+	let concatenatedContent = `/**
+* This module contains all Nidhugg web components in one bundle.
+* @module
+*/
+`;
 	await Promise.all(jsFiles.map(async (file) => {
 		const result = await ReadTextFile(file);
 		concatenatedContent += result + "\n";
