@@ -1,7 +1,6 @@
 /**
  * @class NidhuggModal
  * @extends HTMLElement
- * @module
  * @description Custom element for creating a modal dialog
  * @example
  * <nidhugg-modal>

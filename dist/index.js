@@ -1,8 +1,4 @@
 /**
-* This module contains all Nidhugg web components in one bundle.
-* @module
-*/
-/**
  * @class NidhuggImageModal
  * @module
  * @extends HTMLElement

@@ -1,10 +1,10 @@
 /**
  * @class NidhuggImageModal
- * @module
  * @extends HTMLElement
- *
  * @public
- *
+ * @method open - Opens the modal dialog
+ * @method showModal - Displays the modal dialog
+ * @method close - Closes the modal dialog
  */
 class NidhuggImageModal extends HTMLElement {
 	static observedAttributes = [];
