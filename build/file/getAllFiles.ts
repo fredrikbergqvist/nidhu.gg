@@ -9,9 +9,7 @@ export async function GetAllFiles(
 		if (file.isDirectory) {
 			fileList = await GetAllFiles(filePath, fileList);
 		} else {
-			if(file.name.endsWith('.js')){
 				fileList.push(filePath);
-			}
 		}
 	}
 	return fileList;

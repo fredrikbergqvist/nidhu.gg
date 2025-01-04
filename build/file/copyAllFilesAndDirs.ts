@@ -1,5 +1,5 @@
 import { outDir } from "../../build-dist.ts";
-import { ReadJsFile } from "./readJsFile.ts";
+import { ReadTextFile } from "./readTextFile.ts";
 
 export async function CopyAllFilesAndDirs(
 	dir: string,
@@ -21,7 +21,7 @@ export async function CopyAllFilesAndDirs(
 
 			fileList = await CopyAllFilesAndDirs(filePath, fileList, file.name);
 		} else {
-			const content = await ReadJsFile(filePath);
+			const content = await ReadTextFile(filePath);
 			const outPath = `${outDir}\\${subDir !== "" ? subDir+"\\" : ""}${file.name}`;
 			Deno.writeTextFileSync(outPath, content);
 		}

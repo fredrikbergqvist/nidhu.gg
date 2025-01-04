@@ -8,21 +8,11 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
 	U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @view-transition {
 	navigation: auto;
 }
 
-:root {
-	--nidhugg-base-100: #2a303c;
-	--nidhugg-base-200: #242933;
-	--nidhugg-base-300: #20252e;
-	--nidhugg-base-400: #1c212b;
-	--nidhugg-base-500: #0f1216;
-	--nidhugg-base-content: #fefefe;
-	--nidhugg-neutral: #1c212b;
-	--nidhugg-neutral-content: #B2CCD6;
-	--nidhugg-rounded: 0.5rem;
-}
 
 body {
 	font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -30,41 +20,44 @@ body {
 	color: var(--nidhugg-base-content);
 	margin: 0;
 	font-size: 1rem;
+	line-height: 1.5;
 
-	@media (min-width: 632px) {
+	@media (min-width: 1000px) {
 		font-size: 1.25rem;
 	}
-	@media (min-width: 1600px) {
-		font-size: 1.5rem;
-	}
+
 }
 
-a{
+a {
 	color: var(--nidhugg-base-content);
 	text-decoration: none;
 
-	&:hover{
+	&:hover {
 		color: var(--nidhugg-neutral-content);
 		text-decoration: underline;
 	}
 }
-h1,h2,h3{
+
+h1, h2, h3 {
 	font-family: "Krona One", sans-serif;
 	text-wrap: balance;
 	margin: 0;
 }
+
 #main-header h2,
 h1 {
 	font-weight: 600;
 	font-style: normal;
 	font-size: 1.5rem;
 
-	@media (min-width: 632px) {
+	@media (min-width: 1000px) {
 		font-size: 2.5rem;
 	}
-	@media (min-width: 1000px) {
-		font-size: 3rem;
-	}
+
+}
+
+li {
+	margin: 0.5rem 0;
 }
 
 section,
@@ -87,7 +80,8 @@ main {
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
-		&:hover{
+
+		&:hover {
 			text-decoration: none;
 		}
 	}
@@ -112,13 +106,6 @@ article {
 }
 
 
-.nidhugg-modal-open {
-	overflow: hidden;
-	filter: blur(2px);
-	height: 100vh;
-	width: 100vw;
-}
-
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -132,7 +119,7 @@ article {
 }
 
 
-.btn{
+.btn {
 	cursor: pointer;
 	background-color: var(--nidhugg-base-400);
 	color: var(--nidhugg-base-content);
@@ -140,7 +127,8 @@ article {
 	border-radius: var(--nidhugg-rounded);
 	padding: 1rem 1rem;
 	transition: background-color 0.3s ease;
-	&:hover{
+
+	&:hover {
 		background-color: var(--nidhugg-base-300);
 	}
 }

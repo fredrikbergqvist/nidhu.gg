@@ -5,9 +5,7 @@ image: ../public/img/components/modal.png
 date: 2024-12-10
 ---
 
-
 A basic web component for creating modals.
-
 
 ## Example
 
@@ -27,29 +25,30 @@ A basic web component for creating modals.
 
 ## Installation
 
-The package can be found here: https://jsr.io/@nidhugg/modal
+The package can be found here: [https://jsr.io/@nidhugg/web-components](https://jsr.io/@nidhugg/web-components)
 
 ### npm:
 
 ```bash
- npx jsr add @nidhugg/modal
+npx jsr add @nidhugg/web-components
 ```
 
 ### Yarn:
 
 ```bash
- yarn dlx jsr add @nidhugg/modal
+yarn dlx jsr add @nidhugg/web-components
 ```
 
 ### GitHub:
 
-[https://github.com/fredrikbergqvist/NidhuggModal](https://github.com/fredrikbergqvist/NidhuggModal)
+[https://github.com/fredrikbergqvist/nidhu.gg](https://github.com/fredrikbergqvist/nidhu.gg)
 
 ## Basic usage
 
-1. Include the script in your HTML file by importing the `modal.js` file.
+1. Include the script in your HTML file by importing the `node_modules/@nidhugg/web-components/dist/modal/nidhuggModal.js`-file.
 	- _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
 		production.
+	- _Note:_ If you want to use all components from the package, you can import the `node_modules/@nidhugg/web-components/dist/index.js`-file instead.
 2. Add the `nidhugg-modal` element to your HTML file.
 3. Add content to the modal using the `header`, `content`, and `footer` slots.
 
@@ -101,9 +100,11 @@ The modal can be styled using CSS custom variables. The following variables are 
 	--nidhugg-base-100: #2a303c;
 	--nidhugg-base-200: #242933;
 	--nidhugg-base-300: #20252e;
+	--nidhugg-base-400: #1c212b;
+	--nidhugg-base-500: #0f1216;
 	--nidhugg-base-content: #fefefe;
 	--nidhugg-neutral: #1c212b;
-	--nidhugg-neutral-content: #fefefe;
+	--nidhugg-neutral-content: #B2CCD6;
 	--nidhugg-rounded: 0.5rem;
 }
 ```

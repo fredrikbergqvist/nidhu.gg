@@ -2,31 +2,34 @@
 
 A basic web component for creating modals.
 
+Online documentation here: [https://nidhu.gg/components/modal/](https://nidhu.gg/components/modal/)
+
 ## Installation
 
-The package can be found here: https://jsr.io/@nidhugg/modal
+The package can be found here: https://jsr.io/@nidhugg/web-components
 
 ### npm:
 
 ```bash
- npx jsr add @nidhugg/modal
+npx jsr add @nidhugg/web-components
 ```
 
 ### Yarn:
 
 ```bash
- yarn dlx jsr add @nidhugg/modal
+yarn dlx jsr add @nidhugg/web-components
 ```
 
 ### GitHub:
 
-[https://github.com/fredrikbergqvist/NidhuggModal](https://github.com/fredrikbergqvist/NidhuggModal)
+[https://github.com/fredrikbergqvist/nidhu.gg](https://github.com/fredrikbergqvist/nidhu.gg)
 
 ## Basic usage
 
-1. Include the script in your HTML file by importing the `modal.js` file.
+1. Include the script in your HTML file by importing the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggModal.js`-file from node modules.
 	- _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
 		production.
+	- _Note:_ If you want to use all components from the package, you can import the `node_modules/@nidhugg/web-components/dist/index.js`-file instead.
 2. Add the `modal` element to your HTML file.
 3. Add content to the modal using the `header`, `content`, and `footer` slots.
 
