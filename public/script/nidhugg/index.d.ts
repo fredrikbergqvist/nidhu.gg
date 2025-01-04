@@ -1,12 +1,8 @@
-interface INidhuggImageModal extends HTMLElement {
-	open: () => void;
-	showModal: () => void;
-	close: () => void;
-}
-
 interface Window {
+	NidhuggModal: INidhuggModal;
 	NidhuggImageModal: INidhuggImageModal;
 }
 interface HTMLElementTagNameMap {
+	"nidhugg-modal": INidhuggModal;
 	"nidhugg-image-modal": INidhuggImageModal;
 }
