@@ -24,14 +24,14 @@ async function writeNewVersion(newVersion: string) {
 	jsrFile.version = newVersion;
 	npmConfig.version = newVersion;
 	console.log(
-		`⚒️ Writing new version: ${newVersion} to jsr.json and package.json`,
+		`⚒️ Writing new version: ${newVersion} to deno.json and package.json`,
 	);
 	Deno.writeTextFileSync(denoConfigFile, JSON.stringify(jsrFile));
 	Deno.writeTextFileSync(packageFile, JSON.stringify(npmConfig));
 }
 
 export async function WriteMinorUpdate() {
-	const currentVersion = await getCurrentVersion();
+	const currentVersion = await GetCurrentVersion();
 	const currentMinor = currentVersion[1];
 	const newMinor = parseInt(currentMinor) + 1;
 	const newVersion = `${currentVersion[0]}.${newMinor}.${currentVersion[2]}`;
@@ -39,7 +39,7 @@ export async function WriteMinorUpdate() {
 }
 
 export async function WriteMajorUpdate() {
-	const currentVersion = await getCurrentVersion();
+	const currentVersion = await GetCurrentVersion();
 	const currentMajor = currentVersion[0];
 	const newMajor = parseInt(currentMajor) + 1;
 	const newVersion = `${newMajor}.${currentVersion[1]}.${currentVersion[2]}`;
@@ -47,7 +47,7 @@ export async function WriteMajorUpdate() {
 }
 
 export async function writePatchUpdate() {
-	const currentVersion = await getCurrentVersion();
+	const currentVersion = await GetCurrentVersion();
 	const currentPatch = currentVersion[2];
 	const newPatch = parseInt(currentPatch) + 1;
 	const newVersion = `${currentVersion[0]}.${currentVersion[1]}.${newPatch}`;

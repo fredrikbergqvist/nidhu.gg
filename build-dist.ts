@@ -54,15 +54,6 @@ async function deleteDistFolder() {
 	console.log("🗑️ Dist-folder deleted");
 }
 
-async function copyReadMe() {
-	const readme = await ReadTextFile(
-		`${path.dirname(path.fromFileUrl(Deno.mainModule))}\\README.md`,
-	);
-	const outPath = `${outDir}\\README.md`;
-	Deno.writeTextFileSync(outPath, readme);
-	console.log("📦 README copied");
-}
-
 async function bundleAllCss(nidhuggCssContent: string = "") {
 	const cssFiles = (await GetAllFiles(inDir))
 		.filter((f) => f.endsWith(".css"));
@@ -94,7 +85,6 @@ try {
 	await copyAllComponentFolders();
 	await bundleAllJs();
 	await copyCss();
-	await copyReadMe();
 
 	const currentVersion = await GetCurrentVersion();
 	console.log("⚒️ Current version is ", currentVersion.join("."));
