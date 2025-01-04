@@ -1,8 +1,29 @@
 import * as path from "https://deno.land/std@0.205.0/path/mod.ts";
+import { minify } from "npm:minify";
 import { CopyAllFilesAndDirs } from "./build/file/copyAllFilesAndDirs.ts";
 import { GetAllFiles } from "./build/file/getAllFiles.ts";
 import { ReadTextFile } from "./build/file/readTextFile.ts";
 import { GetCurrentVersion, WriteMajorUpdate, WriteMinorUpdate, writePatchUpdate, } from "./build/versioning/update.ts";
+
+const minifyOptions = {
+	"js": {
+		"type": "putout",
+		"putout": {
+			"quote": "'",
+			"mangle": true,
+			"mangleClassNames": true,
+			"removeUnusedVariables": true,
+			"removeConsole": false,
+			"removeUselessSpread": true,
+		},
+	},
+	"css": {
+		"type": "clean-css",
+		"clean-css": {
+			"compatibility": "*",
+		},
+	},
+};
 
 export const inDir = `${
 	path.dirname(path.fromFileUrl(Deno.mainModule))
@@ -24,9 +45,14 @@ async function bundleAllJs() {
 		concatenatedContent += result + "\n";
 		return;
 	}));
-	const outPath = `${outDir}\\index.js`;
-	Deno.writeTextFileSync(outPath, concatenatedContent);
-	console.log("📦 All components bundled");
+	const bundleOutPath = `${outDir}\\index.js`;
+	Deno.writeTextFileSync(bundleOutPath, concatenatedContent);
+	const minifiedBundle = await minify(bundleOutPath, minifyOptions);
+	console.log("📦 All component JS bundled");
+
+	const minBundleOutPath = `${outDir}\\index.min.js`;
+	Deno.writeTextFileSync(minBundleOutPath, minifiedBundle);
+	console.log("📦 JS bundle minified");
 }
 
 async function copyAllComponentFolders() {
@@ -37,7 +63,7 @@ async function copyAllComponentFolders() {
 		Deno.writeTextFileSync(outPath, result);
 		return;
 	}));
-	console.log("📦 All components copied");
+	console.log("📦 All component JS copied");
 	return;
 }
 
@@ -67,9 +93,15 @@ async function bundleAllCss(nidhuggCssContent: string = "") {
 		concatenatedContent += result + "\n";
 		return;
 	}));
-	const outPath = `${outDir}\\nidhugg-bundle.css`;
-	Deno.writeTextFileSync(outPath, concatenatedContent);
+
+	const bundleOutPath = `${outDir}\\bundle.css`;
+	Deno.writeTextFileSync(bundleOutPath, concatenatedContent);
+	const minifiedBundle = await minify(bundleOutPath, minifyOptions);
 	console.log("📦 All css bundled");
+
+	const minBundleOutPath = `${outDir}\\bundle.min.css`;
+	Deno.writeTextFileSync(minBundleOutPath, minifiedBundle);
+	console.log("📦 CSS bundle minified");
 }
 
 async function copyCss() {

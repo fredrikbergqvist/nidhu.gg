@@ -11,13 +11,13 @@ The package can be found here: https://jsr.io/@nidhugg/web-components
 ### npm:
 
 ```bash
-	npx jsr add @nidhugg/web-components
+npx jsr add @nidhugg/web-components
 ```
 
 ### Yarn:
 
 ```bash
- yarn dlx jsr add @nidhugg/web-components
+yarn dlx jsr add @nidhugg/web-components
 ```
 
 ### GitHub:
@@ -30,7 +30,7 @@ The package can be found here: https://jsr.io/@nidhugg/web-components
 	- _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
 		production.
 	- _Note:_ If you want to use all components from the package, you can import the `node_modules/@nidhugg/web-components/dist/index.js`-file instead.
-2. Add the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggImageModal.css`-file to your HTML file.
+2. Add the `node_modules/@nidhugg/web-components/dist/index.css`-file to your HTML file.
 3. Add the `nidhugg-image-modal`-tag to your HTML file.
 4. Put your img-tags inside the element.
 

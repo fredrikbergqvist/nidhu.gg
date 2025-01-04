@@ -103,7 +103,7 @@ The modal has some classes that you can use:
 
 If you do not want to style the component yourself, you can use the default styling by including the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggImageModal.css` file in your project or look at it for inspiration.
 
-Or insert a bundled version of all CSS files by including the `node_modules/@nidhugg/web-components/dist/nidhugg-bundle.css` file.
+Or insert a bundled version of all CSS files by including the `node_modules/@nidhugg/web-components/dist/index.css` file.
 
 ### Global styles and variables
 
