@@ -5,28 +5,28 @@ type ConfigWithVersion = {
 	version: string;
 };
 
-const jsrConfigFile = `${
+const denoConfigFile = `${
 	path.dirname(path.fromFileUrl(Deno.mainModule))
-}\\jsr.json`;
+}\\deno.json`;
 const packageFile = `${
 	path.dirname(path.fromFileUrl(Deno.mainModule))
 }\\package.json`;
 
-async function getCurrentVersion() {
-	const jsrFile = await ReadJsonFile<ConfigWithVersion>(jsrConfigFile);
+export async function GetCurrentVersion() {
+	const jsrFile = await ReadJsonFile<ConfigWithVersion>(denoConfigFile);
 	const currentVersion = jsrFile.version.split(".");
 	return currentVersion;
 }
 
 async function writeNewVersion(newVersion: string) {
-	const jsrFile = await ReadJsonFile<ConfigWithVersion>(jsrConfigFile);
+	const jsrFile = await ReadJsonFile<ConfigWithVersion>(denoConfigFile);
 	const npmConfig = await ReadJsonFile<ConfigWithVersion>(packageFile);
 	jsrFile.version = newVersion;
 	npmConfig.version = newVersion;
 	console.log(
 		`⚒️ Writing new version: ${newVersion} to jsr.json and package.json`,
 	);
-	Deno.writeTextFileSync(jsrConfigFile, JSON.stringify(jsrFile));
+	Deno.writeTextFileSync(denoConfigFile, JSON.stringify(jsrFile));
 	Deno.writeTextFileSync(packageFile, JSON.stringify(npmConfig));
 }
 

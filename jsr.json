@@ -1,1 +1,0 @@
-{"name":"@nidhugg/web-components","version":"0.2.0","exports":{".":"./dist/index.js","./nidhuggModal":"./dist/modal/nidhuggModal.js","./nidhuggImageModal":"./dist/imageModal/nidhuggImageModal.js"},"author":"Fredrik Bergqvist","description":"A no dependency web component library","license":"MIT","publish":{"include":["LICENSE","dist/**/*"],"exclude":["test/**/*"]}}

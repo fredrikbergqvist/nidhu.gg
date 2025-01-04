@@ -2,7 +2,7 @@ import * as path from "https://deno.land/std@0.205.0/path/mod.ts";
 import { CopyAllFilesAndDirs } from "./build/file/copyAllFilesAndDirs.ts";
 import { GetAllFiles } from "./build/file/getAllFiles.ts";
 import { ReadTextFile } from "./build/file/readTextFile.ts";
-import { WriteMajorUpdate, WriteMinorUpdate, writePatchUpdate, } from "./build/versioning/update.ts";
+import { GetCurrentVersion, WriteMajorUpdate, WriteMinorUpdate, writePatchUpdate, } from "./build/versioning/update.ts";
 
 export const inDir = `${
 	path.dirname(path.fromFileUrl(Deno.mainModule))
@@ -96,7 +96,9 @@ try {
 	await copyCss();
 	await copyReadMe();
 
-	const version = prompt("Enter version bump (M/m/p): ");
+	const currentVersion = await GetCurrentVersion();
+	console.log("⚒️ Current version is ", currentVersion.join("."));
+	const version = prompt(`⚒️ Enter version bump (M/m/p/enter to skip): `);
 
 	if (version === "m") {
 		await WriteMinorUpdate();
