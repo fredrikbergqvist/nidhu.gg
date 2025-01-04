@@ -11,6 +11,7 @@
 @view-transition {
 	navigation: auto;
 }
+
 :root {
 	--nidhugg-base-100: #2a303c;
 	--nidhugg-base-200: #242933;
@@ -33,10 +34,9 @@ body {
 	@media (min-width: 632px) {
 		font-size: 1.25rem;
 	}
-	@media (min-width: 1000px) {
+	@media (min-width: 1600px) {
 		font-size: 1.5rem;
 	}
-
 }
 
 a{

@@ -6,7 +6,7 @@
  *
  */
 class NidhuggImageModal extends HTMLElement {
-	static observedAttributes = [""];
+	static observedAttributes = ["horizontal"];
 	static {
 		customElements.define("nidhugg-image-modal", this);
 	}
@@ -31,8 +31,15 @@ class NidhuggImageModal extends HTMLElement {
 		});
 	}
 
+	#modalId = "nidhugg-image-modal";
+	#dialogClass = `${this.#modalId}__dialog`;
+	#figureClass = `${this.#modalId}__figure`;
+	#modalImageClass = `${this.#modalId}__img`;
+	#captionClass = `${this.#modalId}__caption`;
+	#modalOpenClass = "nidhugg-modal-open";
+
 	get Dialog() {
-		return this.querySelector("dialog");
+		return document.getElementById(this.#modalId);
 	}
 
 	open() {
@@ -43,7 +50,7 @@ class NidhuggImageModal extends HTMLElement {
 		const dialog = this.Dialog;
 		if (dialog) {
 			dialog.showModal();
-			document.body.classList.add("nidhugg-modal-open");
+			document.body.classList.add(this.#modalOpenClass);
 		}
 	}
 
@@ -53,24 +60,28 @@ class NidhuggImageModal extends HTMLElement {
 			dialog.style.opacity = "0";
 			dialog.style.transform = "scale(0)";
 			setTimeout(() => {
-				dialog.close();
-				document.body.classList.remove("nidhugg-modal-open");
+				document.body.classList.remove(this.#modalOpenClass);
 				dialog.style.opacity = "";
 				dialog.style.transform = "";
-			}, 300);
+				dialog.close();
+			}, 200);
 		}
 	}
 
 	populateElements() {
+		if(this.Dialog){
+			return;
+		}
 		const imageDialogEl = document.createElement("dialog");
-		imageDialogEl.classList.add("nidhugg-image_modal__dialog")
+		imageDialogEl.classList.add(this.#dialogClass);
+		imageDialogEl.id = this.#modalId;
 		imageDialogEl.innerHTML = `
-			<figure class="nidhugg-image_modal__main">
-				<img class="nidhugg-image_modal__img" src="#" alt="" />
-				<figcaption></figcaption>
+			<figure class="${this.#figureClass}">
+				<img class="${this.#modalImageClass}" src="#" alt="" />
+				<figcaption class="${this.#captionClass}"></figcaption>
 			</figure>`;
 
-		this.appendChild(imageDialogEl);
+		document.body.appendChild(imageDialogEl);
 	}
 
 	connectedCallback() {
@@ -92,17 +103,19 @@ class NidhuggImageModal extends HTMLElement {
 			}
 		});
 
-		const images = this.querySelectorAll("img:not(.nidhugg-image_modal__img)")
+		const images = this.querySelectorAll("img")
 		images.forEach(img => {
-			img.classList.add("nidhugg-image-modal__image")
 			img.addEventListener("click", () => {
-				const dialogImg = this.querySelector("dialog figure img");
-				const dialogCaption = this.querySelector("dialog figure figcaption");
+				const dialogImg = this.Dialog.querySelector(`.${this.#modalImageClass}`);
+				const dialogCaption = this.Dialog.querySelector(`.${this.#captionClass}`);
 				if(dialogImg){
 					dialogImg.setAttribute("alt", img.getAttribute("alt")) ;
 					dialogImg.setAttribute("height", img.getAttribute("height")) ;
 					dialogImg.setAttribute("width", img.getAttribute("width")) ;
 					dialogImg.setAttribute("src", img.getAttribute("src")) ;
+					if(img.dataset.vertical){
+						dialogImg.classList.add("vertical");
+					}
 					dialogCaption.innerHTML = "";
 					if(img.dataset.caption){
 						dialogCaption.innerHTML = img.dataset.caption;
