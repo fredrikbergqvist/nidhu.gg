@@ -17,5 +17,16 @@
 		"exclude": [
 			"test/**/*"
 		]
+	},
+	"tasks": {
+		"build": "deno run --allow-read --allow-write .\\build-dist.ts"
+	},
+	"imports": {
+		"@std/assert": "jsr:@std/assert@1"
+	},
+	"compilerOptions": {
+		"lib": [
+			"dom"
+		]
 	}
 }

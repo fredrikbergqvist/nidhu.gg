@@ -1,20 +1,18 @@
 {
 	"name": "nidhu.gg",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"description": "Website for the Nidhugg web component library",
 	"homepage": "https://nidhu.gg/",
-	"type": "module",
 	"scripts": {
 		"build": "npx @11ty/eleventy",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
-		"build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
 		"start": "npx @11ty/eleventy --serve --quiet",
-		"start-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/ --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
 		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
 		"prettier:write": "yarn prettier --config ./.prettierrc --write ./**/*.{ts,css,js,html} --log-level warn",
-		"prettier:check": "yarn prettier --config ./.prettierrc --check public/script/nidhugg/**/*.{ts,css,js,html} --log-level warn"
+		"prettier:check": "yarn prettier --config ./.prettierrc --check public/script/nidhugg/**/*.{ts,css,js,html} --log-level warn",
+		"build-dist": "deno run --allow-read --allow-write .\\build-dist.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -29,20 +27,23 @@
 		"node": ">=22"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^3.0.0",
-		"@11ty/eleventy-img": "^5.0.0",
-		"@11ty/eleventy-navigation": "^0.3.5",
-		"@11ty/eleventy-plugin-rss": "^2.0.2",
-		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"@11ty/eleventy": "3.0.0",
+		"@11ty/eleventy-img": "5.0.0",
+		"@11ty/eleventy-navigation": "0.3.5",
+		"@11ty/eleventy-plugin-rss": "2.0.2",
+		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
 		"cross-env": "7.0.3",
-		"daisyui": "4.12.11",
-		"luxon": "^3.5.0",
-		"zod": "^3.23.8",
-		"zod-validation-error": "^3.3.1",
-		"prettier": "3.4.1",
-		"release-please": "16.15.0"
+		"daisyui": "4.12.23",
+		"luxon": "3.5.0",
+		"prettier": "3.4.2",
+		"zod": "3.23.8",
+		"zod-validation-error": "3.3.1"
 	},
-	"dependencies": {
-		"@nidhugg/modal": "npm:@jsr/nidhugg__modal@^0.4.0"
-	}
+	"dependencies": {},
+	"copyFiles": [
+		{
+			"from": "public/script/nidhugg/**/*",
+			"to": "dist"
+		}
+	]
 }

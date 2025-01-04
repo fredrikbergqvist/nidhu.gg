@@ -6,16 +6,10 @@
  *
  */
 class NidhuggImageModal extends HTMLElement {
-	static observedAttributes = [];
+	static observedAttributes = ["horizontal"];
 	static {
 		customElements.define("nidhugg-image-modal", this);
 	}
-	#modalId = "nidhugg-image-modal";
-	#dialogClass = `${this.#modalId}__dialog`;
-	#figureClass = `${this.#modalId}__figure`;
-	#modalImageClass = `${this.#modalId}__img`;
-	#captionClass = `${this.#modalId}__caption`;
-	#modalOpenClass = "nidhugg-modal-open";
 
 	constructor() {
 		super();
@@ -36,6 +30,13 @@ class NidhuggImageModal extends HTMLElement {
 			composed: true,
 		});
 	}
+
+	#modalId = "nidhugg-image-modal";
+	#dialogClass = `${this.#modalId}__dialog`;
+	#figureClass = `${this.#modalId}__figure`;
+	#modalImageClass = `${this.#modalId}__img`;
+	#captionClass = `${this.#modalId}__caption`;
+	#modalOpenClass = "nidhugg-modal-open";
 
 	get Dialog() {
 		return document.getElementById(this.#modalId);
@@ -67,8 +68,8 @@ class NidhuggImageModal extends HTMLElement {
 		}
 	}
 
-	#populateElements() {
-		if (this.Dialog) {
+	populateElements() {
+		if(this.Dialog){
 			return;
 		}
 		const imageDialogEl = document.createElement("dialog");
@@ -84,7 +85,7 @@ class NidhuggImageModal extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.#populateElements();
+		this.populateElements();
 
 		const dialogEl = this.Dialog;
 		dialogEl?.addEventListener("cancel", (event) => {
@@ -102,27 +103,27 @@ class NidhuggImageModal extends HTMLElement {
 			}
 		});
 
-		const images = this.querySelectorAll("img");
+		const images = this.querySelectorAll("img")
 		images.forEach(img => {
 			img.addEventListener("click", () => {
 				const dialogImg = this.Dialog.querySelector(`.${this.#modalImageClass}`);
 				const dialogCaption = this.Dialog.querySelector(`.${this.#captionClass}`);
-				if (dialogImg) {
-					dialogImg.setAttribute("alt", img.getAttribute("alt"));
-					dialogImg.setAttribute("height", img.getAttribute("height"));
-					dialogImg.setAttribute("width", img.getAttribute("width"));
-					dialogImg.setAttribute("src", img.getAttribute("src"));
-					if (img.dataset.vertical) {
+				if(dialogImg){
+					dialogImg.setAttribute("alt", img.getAttribute("alt")) ;
+					dialogImg.setAttribute("height", img.getAttribute("height")) ;
+					dialogImg.setAttribute("width", img.getAttribute("width")) ;
+					dialogImg.setAttribute("src", img.getAttribute("src")) ;
+					if(img.dataset.vertical){
 						dialogImg.classList.add("vertical");
 					}
 					dialogCaption.innerHTML = "";
-					if (img.dataset.caption) {
+					if(img.dataset.caption){
 						dialogCaption.innerHTML = img.dataset.caption;
 					}
 				}
 				this.showModal();
-			});
-		});
+			})
+		})
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
