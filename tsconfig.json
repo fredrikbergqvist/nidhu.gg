@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"ES2021",
+			"esnext"
+		],
+		"types": [],
+		"allowJs": true,
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {},
+		"plugins": []
+	},
+	"include": [
+		"public/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"build",
+		"dist",
+		"**/*.spec.*"
+	]
+}

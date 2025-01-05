@@ -1,0 +1,59 @@
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translate(-2rem, 10rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-2rem, 0);
+	}
+}
+
+html:has(#nidhugg-back-to-top) {
+	scroll-behavior: smooth;
+}
+
+.nidhugg-back-to-top__anchor {
+	opacity: 0;
+	will-change: opacity, transform;
+	transition: opacity 0.5s ease,
+	transform 0.5s ease;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	text-decoration: none;
+	cursor: pointer;
+
+	&.nidhugg-scroll-animation {
+		animation: fadeIn 1 linear forwards;
+		animation-timeline: scroll(root);
+		animation-range: 25% 50%;
+		animation-duration: 1ms;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	figure {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	figcaption {
+		font-size: 1rem;
+		line-height: 1;
+	}
+
+	svg {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		background-color: var(--nidhugg-base-content);
+		fill: var(--nidhugg-base-500);
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
+}
