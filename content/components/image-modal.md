@@ -1,7 +1,7 @@
 ---
 title: Image modal
 description: Wrap around one or more images to open in modal.
-image: ../public/img/components/modal.png
+image: ../public/img/components/imageModal/image-modal.jpeg
 date: 2025-01-03
 ---
 
@@ -67,6 +67,27 @@ yarn dlx jsr add @nidhugg/web-components
 	<img src="roses.webp" alt="A picture filled with blossoming, red roses" data-caption="Look at all those pretty roses" loading="lazy" width="2250" height="1500">
 	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307">
 </nidhugg-image-modal>
+```
+
+### Use via CDN
+
+You can get the latest version of the component and styles by including the following script and stylesheet in the `<head>` of your HTML file.
+
+```html
+
+<html lang="en">
+<head>
+	<title>My page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/imageModal/nidhuggImageModal.css">
+	<script src="https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/imageModal/nidhuggImageModal.js" defer></script>
+</head>
+<body>
+<nidhugg-image-modal>
+	<img src="roses.webp" alt="A picture filled with blossoming, red roses" data-caption="Look at all those pretty roses" loading="lazy" width="2250" height="1500">
+	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307">
+</nidhugg-image-modal>
+</body>
+</html>
 ```
 
 ## Elements

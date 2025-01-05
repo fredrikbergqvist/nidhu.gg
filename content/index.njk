@@ -1,33 +1,57 @@
 ---js
 const eleventyNavigation = {
-	key: "Home",
-	order: 1
+key: "Home",
+order: 1
 };
 
 const numberOfLatestPostsToShow = 20;
 ---
-{%- css %}{% include "public/css/start-page.css" %}{%- endcss %}
+{%- css %}
+	{% include "public/css/start-page.css" %}
+	{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
+	{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+{%- endcss %}
 
-<section>
-	<div class="content">
+<div class="content">
+
+	<div class="preamble">
 		<p>This is a collection of components that I have created for my own projects. I have decided to share them with you, so you can use them in your projects as well.</p>
 		<p>Feel free to use them in your projects, and if you have any feedback or suggestions, please let me know.</p>
 	</div>
-</section>
 
 
-{% set postsCount = collections.components | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+	{% set postslist = collections.components %}
+	{% include "componentlist.njk" %}
 
-{% set postslist = collections.components | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "componentlist.njk" %}
+	<h2>How do I use Nidhugg Web Components?</h2>
 
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+	<h3>Via NPM</h3>
+	<pre class="language-bash" tabindex="0"><code class="language-bash">npx jsr <span class="token function">add</span> @nidhugg/web-components</code></pre>
+
+	<h3>Via Yarn</h3>
+	<pre class="language-bash" tabindex="0"><code class="language-bash">yarn <span class="token function">add</span> @nidhugg/web-components</code></pre>
+
+	<h3>Via CDN</h3>
+
+	<p>Add the following tags to the <code>&lt;head&gt;</code>-tag of your html file</p>
+
+	<pre class="language-html" tabindex="0"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>My page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token
+		punctuation">"</span>https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/bundle.min.css<span
+					class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/index.min.js<span class="token punctuation">"</span></span> <span class="token attr-name">defer</span><span
+				class="token punctuation">&gt;</span></span><span
+				class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+		...
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+	<p>Take a look at the detail pages for documentation of how to use the individual components.</p>
+
+</div>
+
+

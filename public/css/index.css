@@ -41,7 +41,7 @@ a {
 h1, h2, h3 {
 	font-family: "Krona One", sans-serif;
 	text-wrap: balance;
-	margin: 0;
+	margin: 1rem 0;
 }
 
 #main-header h2,
@@ -56,6 +56,18 @@ h1 {
 
 }
 
+h2 code,
+li code,
+h3 code,
+blockquote code,
+p code {
+	background-color: var(--nidhugg-base-400);
+	color: #fab916;
+	font-style: italic;
+	padding: 0 4px;
+	border: 1px solid #000;
+}
+
 li {
 	margin: 0.5rem 0;
 }
@@ -68,6 +80,18 @@ main {
 		display: block;
 		max-width: 1000px;
 		margin: 0 auto;
+		text-wrap: pretty;
+	}
+}
+
+.preamble {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	text-wrap: pretty;
+
+	@media (min-width: 1000px) {
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 }
 

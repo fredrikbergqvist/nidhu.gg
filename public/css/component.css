@@ -18,17 +18,6 @@
 		margin: 1rem 0;
 	}
 
-	h2 code,
-	li code,
-	h3 code,
-	blockquote code,
-	p code {
-		background-color: var(--nidhugg-base-400);
-		color: #fab916;
-		font-style: italic;
-		padding: 0 4px;
-		border: 1px solid #000;
-	}
 
 	#main-content {
 		text-wrap: pretty;

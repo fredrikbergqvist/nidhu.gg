@@ -1,26 +1,37 @@
-.component-item{
-	width: 100%;
-	max-width: 500px;
+.component-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0;
+	gap: 2rem;
+	margin: 2rem 0
+}
 
-	a{
+.component-item {
+	width: 100%;
+	max-width: 460px;
+
+	a {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
 		background-color: var(--nidhugg-base-400);
-		height: 300px;
+		width: 100%;
 		padding: 1rem;
 		border-radius: var(--nidhugg-rounded);
 	}
 
-	picture{
+	picture {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
 
 	}
-	img{
+
+	img {
 		width: auto;
 		height: auto;
 		max-height: calc(300px - 2rem);

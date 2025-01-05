@@ -9,7 +9,7 @@ A basic web component for creating modals.
 
 ## Example
 
-<button class="btn" onclick="document.getElementById('modal-1').showModal()">Open Modal with footer</button>
+<button class="btn" onclick="document.getElementById('modal-1').showModal()">Open Modal</button>
 
 <nidhugg-modal id="modal-1">
 	<h2 slot="header">My Modal</h2>
