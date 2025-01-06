@@ -1,5 +1,6 @@
 ---
-title: Back-to-top button
+title: Back-to-top button •
+pageTitle: Back-to-top button
 description: Wrap around the main part of your page to add a back-to-top button.
 image: ../public/img/components/back-to-top.png
 date: 2025-01-05

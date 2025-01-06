@@ -1,5 +1,6 @@
 ---
-title: Image modal
+title: Image modal •
+pageTitle: Image modal
 description: Wrap around one or more images to open in modal.
 image: ../public/img/components/image-modal.webp
 date: 2025-01-03

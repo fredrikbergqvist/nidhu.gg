@@ -12,7 +12,7 @@ layout: layouts/base.njk
 <article id="component-page" itemScope itemType="http://schema.org/BlogPosting" itemProp="mainEntity" class="content">
 	<nidhugg-back-to-top scroll-to="top-scroll">
 		<header class="flex flex-wrap py-4 px-0 justify-between mb-4 border-b">
-			<h1 class="py-4 mb-4 basis-full w-full" itemProp="headline">{{ title }}</h1>
+			<h1 class="py-4 mb-4 basis-full w-full" itemProp="headline">{{ pageTitle or title }}</h1>
 		</header>
 		<div
 			itemScope

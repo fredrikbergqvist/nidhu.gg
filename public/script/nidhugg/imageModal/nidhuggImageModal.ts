@@ -1,4 +1,9 @@
 /**
+ * Custom web component for creating a modal dialog for an image
+ * @module
+ */
+
+/**
  * @class NidhuggImageModal
  * @extends HTMLElement
  * @public

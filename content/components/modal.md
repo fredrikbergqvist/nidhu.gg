@@ -1,5 +1,6 @@
 ---
-title: Modal
+title: Modal •
+pageTitle: Modal
 description: A basic web component for creating modals.
 image: ../public/img/components/modal.webp
 date: 2024-12-10
