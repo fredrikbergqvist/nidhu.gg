@@ -100,7 +100,8 @@ class NidhuggModal extends HTMLElement {
         }
         const main = document.createElement("main");
         main.classList.add(__classPrivateFieldGet(this, _NidhuggModal_mainClass, "f"));
-        main.append(...content);
+        const childNodes = Array.from(content);
+        main.append(...childNodes);
         dialogElement.appendChild(header);
         dialogElement.appendChild(main);
         this.appendChild(dialogElement);
