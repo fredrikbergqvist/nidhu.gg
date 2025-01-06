@@ -1,7 +1,7 @@
 ---
 title: Image modal
 description: Wrap around one or more images to open in modal.
-image: ../public/img/components/imageModal/image-modal.jpeg
+image: ../public/img/components/image-modal.webp
 date: 2025-01-03
 ---
 
@@ -64,8 +64,15 @@ yarn dlx jsr add @nidhugg/web-components
 ```html
 
 <nidhugg-image-modal>
-	<img src="roses.webp" alt="A picture filled with blossoming, red roses" data-caption="Look at all those pretty roses" loading="lazy" width="2250" height="1500">
-	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307">
+	<img
+		src="roses.webp"
+		alt="A picture filled with blossoming, red roses"
+		data-caption="Look at all those pretty roses"
+		loading="lazy"
+		width="2250"
+		height="1500"
+	/>
+	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307" />
 </nidhugg-image-modal>
 ```
 
@@ -78,13 +85,20 @@ You can get the latest version of the component and styles by including the foll
 <html lang="en">
 <head>
 	<title>My page</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/imageModal/nidhuggImageModal.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/imageModal/nidhuggImageModal.css" />
 	<script src="https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/imageModal/nidhuggImageModal.js" defer></script>
 </head>
 <body>
 <nidhugg-image-modal>
-	<img src="roses.webp" alt="A picture filled with blossoming, red roses" data-caption="Look at all those pretty roses" loading="lazy" width="2250" height="1500">
-	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307">
+	<img
+		src="roses.webp"
+		alt="A picture filled with blossoming, red roses"
+		data-caption="Look at all those pretty roses"
+		loading="lazy"
+		width="2250"
+		height="1500"
+	/>
+	<img src="balloon.jpg" alt="A balloon floating over water on a clear starry night" loading="lazy" width="1929" height="1307" />
 </nidhugg-image-modal>
 </body>
 </html>
@@ -92,7 +106,8 @@ You can get the latest version of the component and styles by including the foll
 
 ## Elements
 
-The component will append a modal element with id `nidhugg-image-modal` to the body when loaded. If more than one `<nidhugg-image-modal>`-tag is used, the dialog element will still only be appended once.
+The component will append a modal element with id `nidhugg-image-modal` to the body when loaded. If more than one `<nidhugg-image-modal>`-tag is used, the
+dialog element will still only be appended once.
 
 ## Styling
 
@@ -122,7 +137,8 @@ The modal has some classes that you can use:
 }
 ```
 
-If you do not want to style the component yourself, you can use the default styling by including the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggImageModal.css` file in your project or look at it for inspiration.
+If you do not want to style the component yourself, you can use the default styling by including the
+`node_modules/@nidhugg/web-components/dist/imageModal/nidhuggImageModal.css` file in your project or look at it for inspiration.
 
 Or insert a bundled version of all CSS files by including the `node_modules/@nidhugg/web-components/dist/index.css` file.
 
@@ -154,7 +170,7 @@ The modal can be styled using CSS custom variables. The following variables are 
 	--nidhugg-base-500: #0f1216;
 	--nidhugg-base-content: #fefefe;
 	--nidhugg-neutral: #1c212b;
-	--nidhugg-neutral-content: #B2CCD6;
+	--nidhugg-neutral-content: #b2ccd6;
 	--nidhugg-rounded: 0.5rem;
 }
 ```

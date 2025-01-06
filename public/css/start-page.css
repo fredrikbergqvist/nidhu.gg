@@ -4,13 +4,16 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 0;
-	gap: 2rem;
-	margin: 2rem 0
+	gap: 1rem;
+	margin: 2rem 0;
 }
 
 .component-item {
 	width: 100%;
-	max-width: 460px;
+
+	@media (min-width: 1000px) {
+		max-width: calc(290px + 2rem);
+	}
 
 	a {
 		display: flex;
@@ -28,12 +31,10 @@
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
-
 	}
 
 	img {
-		width: auto;
+		width: 100%;
 		height: auto;
-		max-height: calc(300px - 2rem);
 	}
 }
