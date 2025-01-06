@@ -9,26 +9,26 @@ layout: layouts/base.njk
 {%- css %}{% include "public/script/nidhugg/imageModal/nidhuggImageModal.css" %}{%- endcss %}
 {%- css %}{% include "public/script/nidhugg/backToTop/nidhuggBackToTop.css" %}{%- endcss %}
 
-<article id="component-page" itemScope itemType="http://schema.org/BlogPosting" itemProp="mainEntity" class="content">
+<article id="component-page" itemScope itemProp="mainEntity" class="content">
 	<nidhugg-back-to-top scroll-to="top-scroll">
-		<header class="flex flex-wrap py-4 px-0 justify-between mb-4 border-b">
-			<h1 class="py-4 mb-4 basis-full w-full" itemProp="headline">{{ pageTitle or title }}</h1>
+		<header class="">
+			<h1 class="" itemProp="headline">{{ pageTitle or title }}</h1>
 		</header>
-		<div
-			itemScope
-			itemType="http://schema.org/ArticleBody">
-
+		<div itemScope>
 			{{ content | safe }}
 		</div>
 		{%- if collections.components %}
 			{%- set previousPost = collections.components | getPreviousCollectionItem %}
 			{%- set nextPost = collections.components | getNextCollectionItem %}
 			{%- if nextPost or previousPost %}
-				<footer class="my-8 py-4 flex flex-row justify-between items-center">
-					{%- if previousPost %}
-						<div class=""><span class="block">← Previous</span> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></div>{% endif %}
+				<footer class="">
+					<div class="">
+						{%- if previousPost %}
+							<span class="block">← Previous</span> <a href="{{ previousPost.url }}">{{ previousPost.data.pageTitle }}</a>
+						{% endif %}
+					</div>
 					{%- if nextPost %}
-						<div class=""><span class="block">Next →</span><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></div>{% endif %}
+						<div class=""><span class="block">Next →</span><a href="{{ nextPost.url }}">{{ nextPost.data.pageTitle }}</a></div>{% endif %}
 
 				</footer>
 			{%- endif %}

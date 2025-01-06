@@ -55,4 +55,18 @@
 		width: auto;
 		max-width: 150px;
 	}
+
+	footer {
+		margin: 2rem 0;
+		padding: 1rem 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 2px solid var(--nidhugg-neutral-content);
+
+		.block {
+			display: block;
+		}
+	}
 }
