@@ -1,6 +1,6 @@
 {
 	"name": "@nidhugg/web-components",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"description": "Website for the Nidhugg web component library",
 	"homepage": "https://nidhu.gg/",
 	"scripts": {

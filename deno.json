@@ -1,6 +1,6 @@
 {
 	"name": "@nidhugg/web-components",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"exports": {
 		".": "./dist/index.js",
 		"./nidhuggModal": "./dist/modal/nidhuggModal.ts",

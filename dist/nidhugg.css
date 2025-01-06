@@ -6,7 +6,7 @@
 	--nidhugg-base-500: #0f1216;
 	--nidhugg-base-content: #fefefe;
 	--nidhugg-neutral: #1c212b;
-	--nidhugg-neutral-content: #B2CCD6;
+	--nidhugg-neutral-content: #b2ccd6;
 	--nidhugg-rounded: 0.5rem;
 }
 
@@ -16,4 +16,3 @@
 	height: 100vh;
 	width: 100vw;
 }
-
