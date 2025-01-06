@@ -14,10 +14,6 @@
 		margin: 2rem 0;
 	}
 
-	h3 {
-		margin: 1rem 0;
-	}
-
 	#main-content {
 		text-wrap: pretty;
 		orphans: 3;
@@ -63,7 +59,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		border-top: 2px solid var(--nidhugg-neutral-content);
+		border-top: 2px solid var(--nidhugg-base-content);
 
 		.block {
 			display: block;

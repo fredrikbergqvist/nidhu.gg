@@ -46,6 +46,10 @@ h3 {
 	font-family: "Krona One", sans-serif;
 	text-wrap: balance;
 	margin: 1rem 0;
+
+	@media (min-width: 1000px) {
+		margin: 2rem 0;
+	}
 }
 
 #main-header h2,
