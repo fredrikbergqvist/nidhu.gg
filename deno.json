@@ -3,8 +3,8 @@
 	"version": "0.2.4",
 	"exports": {
 		".": "./dist/index.js",
-		"./nidhuggModal": "./dist/modal/nidhuggModal.js",
-		"./nidhuggImageModal": "./dist/imageModal/nidhuggImageModal.js",
+		"./nidhuggModal": "./dist/modal/nidhuggModal.ts",
+		"./nidhuggImageModal": "./dist/imageModal/nidhuggImageModal.ts",
 		"./nidhuggBackToTop": "./dist/backToTop/nidhuggBackToTop.ts"
 	},
 	"author": "Fredrik Bergqvist",

@@ -71,7 +71,7 @@ class NidhuggBackToTop extends HTMLElement {
 		anchor.id = this.#anchorId;
 		anchor.classList.add(this.#anchorClass);
 		if (this.#supportsScrollAnimation) {
-			anchor.classList.add("nidhugg-scroll-animation");
+			anchor.classList.add("nidhugg-back-to-top__anchor--scroll-animation");
 		}
 		return anchor;
 	}

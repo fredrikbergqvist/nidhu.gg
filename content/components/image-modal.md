@@ -7,7 +7,7 @@ date: 2025-01-03
 
 Wrap around one or more images to open in modal.
 
-## Examples
+## Live examples
 
 <div class="side-by-side">
 	<div>
@@ -31,27 +31,7 @@ Wrap around one or more images to open in modal.
 	</div>
 </div>
 
-## Installation
-
-The package can be found here: [https://jsr.io/@nidhugg/web-components](https://jsr.io/@nidhugg/web-components)
-
-### npm:
-
-```bash
-npx jsr add @nidhugg/web-components
-```
-
-### Yarn:
-
-```bash
-yarn dlx jsr add @nidhugg/web-components
-```
-
-### GitHub:
-
-[https://github.com/fredrikbergqvist/nidhu.gg](https://github.com/fredrikbergqvist/nidhu.gg)
-
-## Basic usage
+## How to use
 
 1. Include the script in your HTML file by importing the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggImageModal.js`-file.
 	- _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
@@ -104,6 +84,37 @@ You can get the latest version of the component and styles by including the foll
 </html>
 ```
 
+## Features
+
+- No shadow DOM
+- Close when pressing the escape key
+- Closes when clicking outside the modal
+- Can be opened via JavaScript
+- Emit events when opened, closed, or canceled
+- Default styling available
+
+## Installation
+
+The package can be found here: [https://jsr.io/@nidhugg/web-components](https://jsr.io/@nidhugg/web-components), and the code is hosted here:
+[https://github.com/fredrikbergqvist/nidhu.gg](https://github.com/fredrikbergqvist/nidhu.gg)
+
+### npm:
+
+```bash
+npx jsr add @nidhugg/web-components
+```
+
+### Yarn:
+
+```bash
+yarn dlx jsr add @nidhugg/web-components
+```
+
+### CDN:
+
+- [https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/modal/nidhuggModal.css](https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/modal/nidhuggModal.css)
+- [https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/modal/nidhuggModal.js](https://cdn.jsdelivr.net/gh/fredrikbergqvist/nidhu.gg/dist/modal/nidhuggModal.js)
+
 ## Elements
 
 The component will append a modal element with id `nidhugg-image-modal` to the body when loaded. If more than one `<nidhugg-image-modal>`-tag is used, the
@@ -117,7 +128,7 @@ The modal has some classes that you can use:
 
 ```css
 #nidhugg-image-modal {
-	/* This is the dialog elements ID */
+	/* This is the dialog element ID */
 }
 
 .nidhugg-image-modal__dialog {
@@ -159,18 +170,12 @@ The modal will add the `nidhugg-modal-open`-class to the body when it is open. T
 
 #### CSS Custom variables
 
-The modal can be styled using CSS custom variables. The following variables are available:
+The modal can be styled using CSS custom variables. The following variables are used in the default styling:
 
 ```css
 :root {
 	--nidhugg-base-100: #2a303c;
-	--nidhugg-base-200: #242933;
-	--nidhugg-base-300: #20252e;
-	--nidhugg-base-400: #1c212b;
-	--nidhugg-base-500: #0f1216;
 	--nidhugg-base-content: #fefefe;
-	--nidhugg-neutral: #1c212b;
-	--nidhugg-neutral-content: #b2ccd6;
 	--nidhugg-rounded: 0.5rem;
 }
 ```

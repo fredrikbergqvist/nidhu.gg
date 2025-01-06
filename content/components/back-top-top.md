@@ -7,6 +7,10 @@ date: 2025-01-05
 
 Wrap around the main part of your page to add a back-to-top button.
 
+### Live example
+
+Scroll down on this page to see the back-to-top button in action.
+
 ## How to use
 
 Install the package or use the CDN, then add the files to the head of your HTML file.
@@ -37,10 +41,6 @@ If you wish to use a different ID to link to, you can add the `scroll-to` attrib
 </body>
 </html>
 ```
-
-### Live example
-
-Scroll down on this page to see the back-to-top button in action.
 
 ## Installation
 
@@ -78,10 +78,9 @@ There is not a lot to style, but if you want to tweak the default colors, you ca
 If you prefer to style the button itself, you can do so by targeting the `nidhugg-back-to-top` tag, or these CSS classes.
 
 ```css
-nidhugg-back-to-top,
 #nidhugg-back-to-top,
 .nidhugg-back-to-top_anchor {
-	/*These all target the same element*/
+	/*These target the same element*/
 
 	&.nidhugg-scroll-animation {
 		/*

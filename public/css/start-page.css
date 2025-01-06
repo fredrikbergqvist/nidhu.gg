@@ -24,6 +24,11 @@
 		width: 100%;
 		padding: 1rem;
 		border-radius: var(--nidhugg-rounded);
+		transition: background-color 0.25s ease;
+
+		&:hover {
+			background-color: var(--nidhugg-base-500);
+		}
 	}
 
 	picture {
@@ -36,5 +41,6 @@
 	img {
 		width: 100%;
 		height: auto;
+		border-radius: var(--nidhugg-rounded);
 	}
 }

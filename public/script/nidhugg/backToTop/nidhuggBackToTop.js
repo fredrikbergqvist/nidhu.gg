@@ -67,7 +67,7 @@ _a = NidhuggBackToTop, _NidhuggBackToTop_anchorId = new WeakMap(), _NidhuggBackT
     anchor.id = __classPrivateFieldGet(this, _NidhuggBackToTop_anchorId, "f");
     anchor.classList.add(__classPrivateFieldGet(this, _NidhuggBackToTop_anchorClass, "f"));
     if (__classPrivateFieldGet(this, _NidhuggBackToTop_supportsScrollAnimation, "f")) {
-        anchor.classList.add("nidhugg-scroll-animation");
+        anchor.classList.add("nidhugg-back-to-top__anchor--scroll-animation");
     }
     return anchor;
 };
