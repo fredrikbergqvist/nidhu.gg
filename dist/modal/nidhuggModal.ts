@@ -1,7 +1,12 @@
 /**
+ * Custom web component for creating a modal dialog
+ * @module
+ */
+
+/**
  * @class NidhuggModal
  * @extends HTMLElement
- * @description Custom element for creating a modal dialog
+ * @description Custom web component for creating a modal dialog
  * @example
  * <nidhugg-modal>
  *   <h2 slot="header">Modal Header</h2>
@@ -11,10 +16,10 @@
  *
  * @public
  * @method open - Opens the modal dialog
- * @method showModal - Displays the modal dialog
+ * @method showModal - Opens the modal dialog
  * @method close - Closes the modal dialog
- * @property string heading - The heading text for the modal dialog
- * @property boolean open - Whether the modal dialog is open
+ * @property heading - The heading text for the modal dialog
+ * @property open - Whether the modal dialog is open
  *
  */
 class NidhuggModal extends HTMLElement {

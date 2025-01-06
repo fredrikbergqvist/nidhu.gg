@@ -176,7 +176,7 @@ nidhugg-image-modal img {
 	align-items: flex-start;
 	padding: 1rem;
 
-	&.no-heading {
+	&.nidhugg-modal__heading--no-heading {
 		background-color: transparent;
 		padding-bottom: 0;
 

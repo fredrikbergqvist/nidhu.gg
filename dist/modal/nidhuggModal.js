@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * Custom web component for creating a modal dialog
+ * @module
+ */
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
@@ -8,7 +12,7 @@ var _a, _NidhuggModal_modalOpenClass, _NidhuggModal_dialogClass, _NidhuggModal_h
 /**
  * @class NidhuggModal
  * @extends HTMLElement
- * @description Custom element for creating a modal dialog
+ * @description Custom web component for creating a modal dialog
  * @example
  * <nidhugg-modal>
  *   <h2 slot="header">Modal Header</h2>
@@ -18,10 +22,10 @@ var _a, _NidhuggModal_modalOpenClass, _NidhuggModal_dialogClass, _NidhuggModal_h
  *
  * @public
  * @method open - Opens the modal dialog
- * @method showModal - Displays the modal dialog
+ * @method showModal - Opens the modal dialog
  * @method close - Closes the modal dialog
- * @property string heading - The heading text for the modal dialog
- * @property boolean open - Whether the modal dialog is open
+ * @property heading - The heading text for the modal dialog
+ * @property open - Whether the modal dialog is open
  *
  */
 class NidhuggModal extends HTMLElement {
