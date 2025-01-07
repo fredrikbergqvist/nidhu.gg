@@ -1,3 +1,7 @@
+nidhugg-image-modal:not(:defined) {
+	display: none;
+}
+
 nidhugg-image-modal img {
 	width: auto;
 	height: 150px;
