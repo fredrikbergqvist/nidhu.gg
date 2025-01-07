@@ -1,3 +1,7 @@
+nidhugg-modal:not(:defined) {
+	display: none;
+}
+
 .nidhugg-modal__dialog {
 	display: none;
 	transition: all 0.3s ease-in-out;
