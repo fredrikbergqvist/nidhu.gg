@@ -45,18 +45,20 @@ async function bundleAllJs() {
 	const jsFiles = files.filter((f) => f.endsWith(".js"));
 	const tsFiles = files.filter((f) => f.endsWith(".ts"));
 	let concatenatedJs = await getAllTextContent(jsFiles);
+	const strippedJs = concatenatedJs.replace(/\/\*[\s\S]*?\*\//g, "");
 
 	const jsBundleOutPath = `${outDir}\\index.js`;
-	Deno.writeTextFileSync(jsBundleOutPath, concatenatedJs);
+	Deno.writeTextFileSync(jsBundleOutPath, strippedJs);
 	const minifiedJsBundle = await minify(jsBundleOutPath, minifyOptions);
 	console.log("📦 All component JS bundled");
 	const minJsBundleOutPath = `${outDir}\\index.min.js`;
 	Deno.writeTextFileSync(minJsBundleOutPath, minifiedJsBundle);
 	console.log("📦 JS bundle minified");
 
-	let concatenatedTs = await getAllTextContent(tsFiles);
+	const concatenatedTs = await getAllTextContent(tsFiles);
 	const tsBundleOutPath = `${outDir}\\index.ts`;
-	Deno.writeTextFileSync(tsBundleOutPath, concatenatedTs);
+	const strippedTs = concatenatedTs.replace(/\/\*[\s\S]*?\*\//g, "");
+	Deno.writeTextFileSync(tsBundleOutPath, strippedTs);
 	console.log("📦 All component TS bundled");
 }
 
