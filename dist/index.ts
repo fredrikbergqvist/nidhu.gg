@@ -1,14 +1,6 @@
-/**
- * Custom web component for adding a "back to top" button
- * @module
- */
 
-/**
- * @class NidhuggBackToTop
- * @extends HTMLElement
- * @public
- * @property scroll-id - Optional ID of the element to scroll to
- */
+
+
 class NidhuggBackToTop extends HTMLElement {
 	static observedAttributes = ["scroll-id"];
 	#anchorId = "nidhugg-back-to-top";
@@ -86,19 +78,9 @@ class NidhuggBackToTop extends HTMLElement {
 	}
 }
 
-/**
- * Custom web component for creating a modal dialog for an image
- * @module
- */
 
-/**
- * @class NidhuggImageModal
- * @extends HTMLElement
- * @public
- * @method open - Opens the modal dialog
- * @method showModal - Displays the modal dialog
- * @method close - Closes the modal dialog
- */
+
+
 class NidhuggImageModal extends HTMLElement {
 	static observedAttributes = [];
 	static {
@@ -235,30 +217,9 @@ class NidhuggImageModal extends HTMLElement {
 	}
 }
 
-/**
- * Custom web component for creating a modal dialog
- * @module
- */
 
-/**
- * @class NidhuggModal
- * @extends HTMLElement
- * @description Custom web component for creating a modal dialog
- * @example
- * <nidhugg-modal>
- *   <h2 slot="header">Modal Header</h2>
- *   <p slot="content">Modal Content</p>
- *   <button slot="footer">Close</button>
- * </nidhugg-modal>
- *
- * @public
- * @method open - Opens the modal dialog
- * @method showModal - Opens the modal dialog
- * @method close - Closes the modal dialog
- * @property heading - The heading text for the modal dialog
- * @property open - Whether the modal dialog is open
- *
- */
+
+
 class NidhuggModal extends HTMLElement {
 	static observedAttributes = ["open", "heading"];
 	static {
@@ -338,7 +299,9 @@ class NidhuggModal extends HTMLElement {
 		header.classList.add(this.#headerClass);
 		header.innerHTML = `
 			<form formmethod="dialog">
-				<button class="${this.#closeBtnClass}" type="submit" title="Close modal" autofocus>x</button>
+				<button class="${this.#closeBtnClass}" type="submit" title="Close modal" autofocus>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6a1 1 0 0 0-1.414 0L12 10.586 7.414 6A1 1 0 0 0 6 6a1 1 0 0 0 0 1.414L10.586 12 6 16.586A1 1 0 0 0 6 18a1 1 0 0 0 1.414 0L12 13.414 16.586 18A1 1 0 0 0 18 18a1 1 0 0 0 0-1.414L13.414 12 18 7.414A1 1 0 0 0 18 6Z"/></svg>
+				</button>
 			</form>`;
 		if (headingText) {
 			header.appendChild(headingEl);

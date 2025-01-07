@@ -1,20 +1,12 @@
 "use strict";
-/**
- * Custom web component for adding a "back to top" button
- * @module
- */
+
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _NidhuggBackToTop_instances, _a, _NidhuggBackToTop_anchorId, _NidhuggBackToTop_anchorClass, _NidhuggBackToTop_scrollToId, _NidhuggBackToTop_supportsScrollAnimation, _NidhuggBackToTop_handleScrollSupport, _NidhuggBackToTop_createElement;
-/**
- * @class NidhuggBackToTop
- * @extends HTMLElement
- * @public
- * @property scroll-id - Optional ID of the element to scroll to
- */
+
 class NidhuggBackToTop extends HTMLElement {
     constructor() {
         super();
@@ -83,24 +75,14 @@ NidhuggBackToTop.observedAttributes = ["scroll-id"];
 })();
 
 "use strict";
-/**
- * Custom web component for creating a modal dialog for an image
- * @module
- */
+
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _NidhuggImageModal_instances, _a, _NidhuggImageModal_modalId, _NidhuggImageModal_dialogClass, _NidhuggImageModal_figureClass, _NidhuggImageModal_modalImageClass, _NidhuggImageModal_captionClass, _NidhuggImageModal_modalOpenClass, _NidhuggImageModal_populateElements;
-/**
- * @class NidhuggImageModal
- * @extends HTMLElement
- * @public
- * @method open - Opens the modal dialog
- * @method showModal - Displays the modal dialog
- * @method close - Closes the modal dialog
- */
+
 class NidhuggImageModal extends HTMLElement {
     constructor() {
         super();
@@ -225,35 +207,14 @@ NidhuggImageModal.observedAttributes = [];
 })();
 
 "use strict";
-/**
- * Custom web component for creating a modal dialog
- * @module
- */
+
 var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _a, _NidhuggModal_modalOpenClass, _NidhuggModal_dialogClass, _NidhuggModal_headerClass, _NidhuggModal_headingClass, _NidhuggModal_closeBtnClass, _NidhuggModal_mainClass, _NidhuggModal_noHeadingClass;
-/**
- * @class NidhuggModal
- * @extends HTMLElement
- * @description Custom web component for creating a modal dialog
- * @example
- * <nidhugg-modal>
- *   <h2 slot="header">Modal Header</h2>
- *   <p slot="content">Modal Content</p>
- *   <button slot="footer">Close</button>
- * </nidhugg-modal>
- *
- * @public
- * @method open - Opens the modal dialog
- * @method showModal - Opens the modal dialog
- * @method close - Closes the modal dialog
- * @property heading - The heading text for the modal dialog
- * @property open - Whether the modal dialog is open
- *
- */
+
 class NidhuggModal extends HTMLElement {
     constructor() {
         super();
@@ -320,7 +281,9 @@ class NidhuggModal extends HTMLElement {
         header.classList.add(__classPrivateFieldGet(this, _NidhuggModal_headerClass, "f"));
         header.innerHTML = `
 			<form formmethod="dialog">
-				<button class="${__classPrivateFieldGet(this, _NidhuggModal_closeBtnClass, "f")}" type="submit" title="Close modal" autofocus>x</button>
+				<button class="${__classPrivateFieldGet(this, _NidhuggModal_closeBtnClass, "f")}" type="submit" title="Close modal" autofocus>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6a1 1 0 0 0-1.414 0L12 10.586 7.414 6A1 1 0 0 0 6 6a1 1 0 0 0 0 1.414L10.586 12 6 16.586A1 1 0 0 0 6 18a1 1 0 0 0 1.414 0L12 13.414 16.586 18A1 1 0 0 0 18 18a1 1 0 0 0 0-1.414L13.414 12 18 7.414A1 1 0 0 0 18 6Z"/></svg>
+				</button>
 			</form>`;
         if (headingText) {
             header.appendChild(headingEl);

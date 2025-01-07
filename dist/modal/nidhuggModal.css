@@ -53,6 +53,7 @@
 .nidhugg-modal__close-btn {
 	background-color: var(--nidhugg-base-100, #2a303c);
 	color: var(--nidhugg-base-content, #fefefe);
+	fill: var(--nidhugg-base-content, #fefefe);
 	transition: background-color,
 	color 0.3s ease-in-out;
 	border: none;
@@ -68,6 +69,7 @@
 
 	&:hover {
 		color: var(--nidhugg-base-200, #242933);
+		fill: var(--nidhugg-base-200, #242933);
 		background-color: var(--nidhugg-base-content, #fefefe);
 	}
 }
