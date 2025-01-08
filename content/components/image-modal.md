@@ -20,7 +20,7 @@ Wrap around one or more images to open in modal.
 	<div>
 		<p>Standing image</p>
 		<nidhugg-image-modal>
-			<img eleventy:ignore src="/img/components/imageModal/puppy.webp" alt="An adorable puppy" loading="lazy" width="1500" height="1159" data-vertical="true">
+			<img eleventy:ignore src="/img/components/imageModal/puppy.webp" alt="An adorable puppy" loading="lazy" width="1500" height="1159" data-vertical="true" data-caption="An adorable puppy" >
 		</nidhugg-image-modal>
 	</div>
 	<div>
