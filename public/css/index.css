@@ -141,6 +141,18 @@ nidhugg-image-modal img {
 	transition: 250ms ease;
 }
 
+#nidhugg-back-to-top.nidhugg-back-to-top__anchor {
+	left: 2rem;
+	right: 0;
+	margin-inline: auto;
+	width: fit-content;
+
+	@media (min-width: 1000px) {
+		right: 2rem;
+		left: auto;
+	}
+}
+
 #main-header {
 	background-color: var(--nidhugg-base-400);
 	padding: 1rem 0;
