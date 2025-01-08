@@ -8,7 +8,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _NidhuggImageModal_instances, _a, _NidhuggImageModal_modalId, _NidhuggImageModal_dialogClass, _NidhuggImageModal_figureClass, _NidhuggImageModal_modalImageClass, _NidhuggImageModal_captionClass, _NidhuggImageModal_modalOpenClass, _NidhuggImageModal_populateElements;
+var _NidhuggImageModal_instances, _a, _NidhuggImageModal_modalId, _NidhuggImageModal_dialogClass, _NidhuggImageModal_figureClass, _NidhuggImageModal_modalImageClass, _NidhuggImageModal_captionClass, _NidhuggImageModal_modalOpenClass, _NidhuggImageModal_renderImage, _NidhuggImageModal_populateElements;
 /**
  * @class NidhuggImageModal
  * @extends HTMLElement
@@ -90,24 +90,7 @@ class NidhuggImageModal extends HTMLElement {
         const images = this.querySelectorAll("img");
         images.forEach((img) => {
             img.addEventListener("click", () => {
-                var _b, _c;
-                const dialogImg = (_b = this.Dialog) === null || _b === void 0 ? void 0 : _b.querySelector(`.${__classPrivateFieldGet(this, _NidhuggImageModal_modalImageClass, "f")}`);
-                if (dialogImg) {
-                    dialogImg.setAttribute("alt", img.getAttribute("alt") || "");
-                    dialogImg.setAttribute("height", img.getAttribute("height") || "");
-                    dialogImg.setAttribute("width", img.getAttribute("width") || "");
-                    dialogImg.setAttribute("src", img.getAttribute("src") || "");
-                    if (img.dataset.vertical) {
-                        dialogImg.classList.add("vertical");
-                    }
-                }
-                const dialogCaption = (_c = this.Dialog) === null || _c === void 0 ? void 0 : _c.querySelector(`.${__classPrivateFieldGet(this, _NidhuggImageModal_captionClass, "f")}`);
-                if (dialogCaption) {
-                    dialogCaption.innerHTML = "";
-                    if (img.dataset.caption) {
-                        dialogCaption.innerHTML = img.dataset.caption;
-                    }
-                }
+                __classPrivateFieldGet(this, _NidhuggImageModal_instances, "m", _NidhuggImageModal_renderImage).call(this, img);
                 this.showModal();
             });
         });
@@ -121,18 +104,35 @@ class NidhuggImageModal extends HTMLElement {
         }
     }
 }
-_a = NidhuggImageModal, _NidhuggImageModal_modalId = new WeakMap(), _NidhuggImageModal_dialogClass = new WeakMap(), _NidhuggImageModal_figureClass = new WeakMap(), _NidhuggImageModal_modalImageClass = new WeakMap(), _NidhuggImageModal_captionClass = new WeakMap(), _NidhuggImageModal_modalOpenClass = new WeakMap(), _NidhuggImageModal_instances = new WeakSet(), _NidhuggImageModal_populateElements = function _NidhuggImageModal_populateElements() {
+_a = NidhuggImageModal, _NidhuggImageModal_modalId = new WeakMap(), _NidhuggImageModal_dialogClass = new WeakMap(), _NidhuggImageModal_figureClass = new WeakMap(), _NidhuggImageModal_modalImageClass = new WeakMap(), _NidhuggImageModal_captionClass = new WeakMap(), _NidhuggImageModal_modalOpenClass = new WeakMap(), _NidhuggImageModal_instances = new WeakSet(), _NidhuggImageModal_renderImage = function _NidhuggImageModal_renderImage(img) {
+    var _b, _c, _d;
+    const figure = document.createElement("figure");
+    figure.classList.add(__classPrivateFieldGet(this, _NidhuggImageModal_figureClass, "f"));
+    const dialogImg = document.createElement("img");
+    dialogImg.setAttribute("alt", img.getAttribute("alt") || "");
+    dialogImg.setAttribute("height", img.getAttribute("height") || "");
+    dialogImg.setAttribute("width", img.getAttribute("width") || "");
+    dialogImg.setAttribute("src", img.getAttribute("src") || "");
+    dialogImg.classList.add(__classPrivateFieldGet(this, _NidhuggImageModal_modalImageClass, "f"));
+    figure.appendChild(dialogImg);
+    const caption = document.createElement("figcaption");
+    if (img.dataset.caption) {
+        caption.innerHTML = img.dataset.caption;
+        figure.appendChild(caption);
+    }
+    const oldFigure = (_b = this.Dialog) === null || _b === void 0 ? void 0 : _b.querySelector(`.${__classPrivateFieldGet(this, _NidhuggImageModal_figureClass, "f")}`);
+    if (oldFigure) {
+        return (_c = this.Dialog) === null || _c === void 0 ? void 0 : _c.replaceChild(figure, oldFigure);
+    }
+    (_d = this.Dialog) === null || _d === void 0 ? void 0 : _d.appendChild(figure);
+}, _NidhuggImageModal_populateElements = function _NidhuggImageModal_populateElements() {
     if (this.Dialog) {
         return;
     }
     const imageDialogEl = document.createElement("dialog");
     imageDialogEl.classList.add(__classPrivateFieldGet(this, _NidhuggImageModal_dialogClass, "f"));
     imageDialogEl.id = __classPrivateFieldGet(this, _NidhuggImageModal_modalId, "f");
-    imageDialogEl.innerHTML = `
-			<figure class="${__classPrivateFieldGet(this, _NidhuggImageModal_figureClass, "f")}">
-				<img class="${__classPrivateFieldGet(this, _NidhuggImageModal_modalImageClass, "f")}" src="#" alt="" />
-				<figcaption class="${__classPrivateFieldGet(this, _NidhuggImageModal_captionClass, "f")}"></figcaption>
-			</figure>`;
+    imageDialogEl.innerHTML = ``;
     document.body.appendChild(imageDialogEl);
 };
 NidhuggImageModal.observedAttributes = [];

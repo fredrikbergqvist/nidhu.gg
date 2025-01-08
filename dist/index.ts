@@ -169,24 +169,7 @@ class NidhuggImageModal extends HTMLElement {
 		const images = this.querySelectorAll("img");
 		images.forEach((img) => {
 			img.addEventListener("click", () => {
-				const dialogImg = this.Dialog?.querySelector(`.${this.#modalImageClass}`);
-				if (dialogImg) {
-					dialogImg.setAttribute("alt", img.getAttribute("alt") || "");
-					dialogImg.setAttribute("height", img.getAttribute("height") || "");
-					dialogImg.setAttribute("width", img.getAttribute("width") || "");
-					dialogImg.setAttribute("src", img.getAttribute("src") || "");
-					if (img.dataset.vertical) {
-						dialogImg.classList.add("vertical");
-					}
-				}
-				const dialogCaption = this.Dialog?.querySelector(`.${this.#captionClass}`);
-				if (dialogCaption) {
-					dialogCaption.innerHTML = "";
-					if (img.dataset.caption) {
-						dialogCaption.innerHTML = img.dataset.caption;
-					}
-				}
-
+				this.#renderImage(img);
 				this.showModal();
 			});
 		});
@@ -200,6 +183,30 @@ class NidhuggImageModal extends HTMLElement {
 		}
 	}
 
+	#renderImage(img: HTMLImageElement) {
+		const figure = document.createElement("figure");
+		figure.classList.add(this.#figureClass);
+
+		const dialogImg = document.createElement("img");
+		dialogImg.setAttribute("alt", img.getAttribute("alt") || "");
+		dialogImg.setAttribute("height", img.getAttribute("height") || "");
+		dialogImg.setAttribute("width", img.getAttribute("width") || "");
+		dialogImg.setAttribute("src", img.getAttribute("src") || "");
+		dialogImg.classList.add(this.#modalImageClass);
+		figure.appendChild(dialogImg);
+
+		const caption = document.createElement("figcaption");
+		if (img.dataset.caption) {
+			caption.innerHTML = img.dataset.caption;
+			figure.appendChild(caption);
+		}
+		const oldFigure = this.Dialog?.querySelector(`.${this.#figureClass}`);
+		if (oldFigure) {
+			return this.Dialog?.replaceChild(figure, oldFigure);
+		}
+		this.Dialog?.appendChild(figure);
+	}
+
 	#populateElements() {
 		if (this.Dialog) {
 			return;
@@ -207,11 +214,7 @@ class NidhuggImageModal extends HTMLElement {
 		const imageDialogEl = document.createElement("dialog");
 		imageDialogEl.classList.add(this.#dialogClass);
 		imageDialogEl.id = this.#modalId;
-		imageDialogEl.innerHTML = `
-			<figure class="${this.#figureClass}">
-				<img class="${this.#modalImageClass}" src="#" alt="" />
-				<figcaption class="${this.#captionClass}"></figcaption>
-			</figure>`;
+		imageDialogEl.innerHTML = ``;
 
 		document.body.appendChild(imageDialogEl);
 	}
@@ -300,7 +303,7 @@ class NidhuggModal extends HTMLElement {
 		header.innerHTML = `
 			<form formmethod="dialog">
 				<button class="${this.#closeBtnClass}" type="submit" title="Close modal" autofocus>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6a1 1 0 0 0-1.414 0L12 10.586 7.414 6A1 1 0 0 0 6 6a1 1 0 0 0 0 1.414L10.586 12 6 16.586A1 1 0 0 0 6 18a1 1 0 0 0 1.414 0L12 13.414 16.586 18A1 1 0 0 0 18 18a1 1 0 0 0 0-1.414L13.414 12 18 7.414A1 1 0 0 0 18 6Z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M18 6a1 1 0 0 0-1.414 0L12 10.586 7.414 6A1 1 0 0 0 6 6a1 1 0 0 0 0 1.414L10.586 12 6 16.586A1 1 0 0 0 6 18a1 1 0 0 0 1.414 0L12 13.414 16.586 18A1 1 0 0 0 18 18a1 1 0 0 0 0-1.414L13.414 12 18 7.414A1 1 0 0 0 18 6Z"/></svg>
 				</button>
 			</form>`;
 		if (headingText) {

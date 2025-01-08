@@ -2,17 +2,6 @@ nidhugg-image-modal:not(:defined) {
 	display: none;
 }
 
-nidhugg-image-modal img {
-	width: auto;
-	height: 150px;
-	max-height: 150px;
-	border-radius: var(--nidhugg-rounded, 0.5rem);
-	cursor: pointer;
-	opacity: 1;
-	transition: 250ms ease;
-}
-
-
 .nidhugg-image-modal__dialog {
 	display: none;
 	transition: all 0.3s ease-in-out;
@@ -56,10 +45,5 @@ nidhugg-image-modal img {
 	width: 100%;
 	max-width: 90vw;
 	height: auto;
-}
-
-.nidhugg-image-modal__img.vertical {
-	width: auto;
-	height: 100%;
 	max-height: 90vh;
 }

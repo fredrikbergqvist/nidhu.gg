@@ -23,8 +23,8 @@ html:has(#nidhugg-back-to-top) {
 	transition: opacity 0.5s ease,
 	transform 0.5s ease;
 	position: fixed;
-	bottom: 2rem;
-	right: 2rem;
+	bottom: 1rem;
+	right: 1rem;
 	text-decoration: none;
 	cursor: pointer;
 
@@ -37,6 +37,7 @@ html:has(#nidhugg-back-to-top) {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		margin: 0;
 	}
 
 	figcaption {
@@ -52,6 +53,7 @@ html:has(#nidhugg-back-to-top) {
 		fill: var(--nidhugg-base-500);
 		padding: 1rem;
 		margin-bottom: 1rem;
+		box-shadow: 0 0 10px 5px var(--nidhugg-base-500);
 	}
 }
 
