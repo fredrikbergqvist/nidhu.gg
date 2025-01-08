@@ -85,6 +85,7 @@ p code {
 	font-style: italic;
 	padding: 0 4px;
 	border: 1px solid #000;
+	line-break: anywhere;
 }
 
 li {
@@ -107,6 +108,15 @@ main {
 			line-height: 2rem;
 			padding: 0;
 		}
+	}
+}
+
+#main-content {
+	text-wrap: pretty;
+	orphans: 3;
+
+	a {
+		line-break: anywhere;
 	}
 }
 
