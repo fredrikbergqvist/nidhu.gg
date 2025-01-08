@@ -121,6 +121,16 @@ main {
 	}
 }
 
+nidhugg-image-modal img {
+	width: auto;
+	height: 150px;
+	max-height: 150px;
+	border-radius: var(--nidhugg-rounded, 0.5rem);
+	cursor: pointer;
+	opacity: 1;
+	transition: 250ms ease;
+}
+
 #main-header {
 	background-color: var(--nidhugg-base-400);
 	padding: 1rem 0;
