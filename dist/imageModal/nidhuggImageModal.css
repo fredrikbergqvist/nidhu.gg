@@ -1,7 +1,3 @@
-nidhugg-image-modal:not(:defined) {
-	display: none;
-}
-
 .nidhugg-image-modal__dialog {
 	display: none;
 	transition: all 0.3s ease-in-out;
