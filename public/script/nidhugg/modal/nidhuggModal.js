@@ -76,6 +76,7 @@ class NidhuggModal extends HTMLElement {
             dialog.style.transform = "scale(0)";
             setTimeout(() => {
                 dialog.close();
+                dialog.removeAttribute("open");
                 document.body.classList.remove(__classPrivateFieldGet(this, _NidhuggModal_modalOpenClass, "f"));
                 dialog.style.opacity = "";
                 dialog.style.transform = "";

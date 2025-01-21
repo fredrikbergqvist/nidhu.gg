@@ -78,6 +78,68 @@ class NidhuggBackToTop extends HTMLElement {
 	}
 }
 
+"use strict";
+
+export default class TextCountTracker extends HTMLElement {
+	static {
+		customElements.define("nidhugg-character-count", this);
+	}
+	static observedAttributes = ["maxlength"];
+
+	constructor() {
+		super();
+	}
+
+	get #InputEl() {
+		const textArea = this.querySelector("textarea");
+		if (textArea) {
+			return textArea;
+		}
+		const inputElement = this.querySelector("input");
+		if (inputElement) {
+			return inputElement;
+		}
+		console.warn("No input or textarea element found to track text count");
+	}
+
+	get #CharacterCount() {
+		if (!this.#InputEl) {
+			return 0;
+		}
+		return this.#InputEl.value.length;
+	}
+
+	get #CharacterCountElement() {
+		return this.querySelector("#characterCount");
+	}
+
+	get #MaxLength() {
+		return this.getAttribute("maxlength");
+	}
+
+	populateElements() {
+		const divElement = document.createElement("div");
+		divElement.id = "characterCount";
+		divElement.classList.add("nidhugg-character-count");
+		divElement.textContent = `${this.#CharacterCount}${this.#MaxLength ? "/" + this.#MaxLength : ""} characters`;
+		this.append(divElement);
+		if (this.#InputEl) {
+			this.#InputEl.addEventListener("input", this.#UpdateCount.bind(this));
+		}
+	}
+
+	connectedCallback() {
+		this.populateElements();
+	}
+
+	#UpdateCount() {
+		if (!this.#CharacterCountElement) {
+			return;
+		}
+		this.#CharacterCountElement.textContent = `${this.#CharacterCount}${this.#MaxLength ? "/" + this.#MaxLength : ""} characters`;
+	}
+}
+
 
 
 
@@ -283,6 +345,7 @@ class NidhuggModal extends HTMLElement {
 			dialog.style.transform = "scale(0)";
 			setTimeout(() => {
 				dialog.close();
+				dialog.removeAttribute("open");
 				document.body.classList.remove(this.#modalOpenClass);
 				dialog.style.opacity = "";
 				dialog.style.transform = "";

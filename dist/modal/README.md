@@ -27,14 +27,13 @@ yarn dlx jsr add @nidhugg/web-components
 ## Basic usage
 
 1. Include the script in your HTML file by importing the `node_modules/@nidhugg/web-components/dist/imageModal/nidhuggModal.js`-file from node modules.
-	- _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
-		production.
-	- _Note:_ If you want to use all components from the package, you can import the `node_modules/@nidhugg/web-components/dist/index.js`-file instead.
+   - _Note:_ The js file is not minified, so ideally you should minify it and add it to your bundle before using it in
+     production.
+   - _Note:_ If you want to use all components from the package, you can import the `node_modules/@nidhugg/web-components/dist/index.js`-file instead.
 2. Add the `modal` element to your HTML file.
 3. Add content to the modal using the `header`, `content`, and `footer` slots.
 
 ```html
-
 <nidhugg-modal id="modal-1">
 	<h2 slot="header">Hello World</h2>
 	<p slot="content">This is a test of the Nidhugg Modal</p>
@@ -43,35 +42,6 @@ yarn dlx jsr add @nidhugg/web-components
 ```
 
 ## Styling
-
-### Parts
-
-To change styling of the internal parts of the modal, you can use the `::part`-selector.
-
-The modal has the following parts:
-
-- `dialog`: The dialog element.
-- `header`: The header element of the modal.
-- `content`: The content of the modal.
-- `footer`: The footer of the modal.
-
-```css
-/* Example: */
-nidhugg-modal::part(header) {
-	background-color: var(--nidhugg-base-100);
-	color: var(--nidhugg-base-content);
-}
-
-nidhugg-modal::part(content) {
-	background-color: var(--nidhugg-base-200);
-	color: var(--nidhugg-base-content);
-}
-
-nidhugg-modal::part(footer) {
-	background-color: var(--nidhugg-base-100);
-	color: var(--nidhugg-base-content);
-}
-```
 
 ### CSS Custom variables
 
@@ -108,7 +78,6 @@ The modal will also add the `nidhugg-modal-open`-class to the body when it is op
 - `open`: Opens the modal when the attribute is present.
 
 ```html
-
 <nidhugg-modal id="modal-1" open>
 	<h2 slot="header">Hello World</h2>
 	<p slot="content">This is a test of the Nidhugg Modal</p>
