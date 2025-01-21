@@ -95,6 +95,7 @@ li {
 section,
 article,
 header,
+#site-footer,
 main {
 	& > .content {
 		display: block;
@@ -215,5 +216,63 @@ article {
 
 	&:hover {
 		background-color: var(--nidhugg-base-300);
+	}
+}
+
+#site-footer {
+	.content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 2px solid var(--nidhugg-base-500);
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: left;
+		flex-direction: row;
+	}
+
+	li {
+		margin-left: 1rem;
+		display: flex;
+		align-items: center;
+
+		a {
+			/*flex flex-row justify center group*/
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			&:hover {
+				.linkedin-icon {
+					fill: #4875b4;
+				}
+
+				.github-icon {
+					fill: #6a7685;
+				}
+
+				.bluesky-icon {
+					fill: #0886fe;
+				}
+			}
+		}
+	}
+
+	svg {
+		width: 2rem;
+		height: 2rem;
+		user-select: none;
+		flex-shrink: 0;
+		display: inline-block;
+		color: var(--nidhugg-base-content);
+		fill: currentColor;
 	}
 }
