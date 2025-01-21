@@ -1,4 +1,7 @@
-"use strict";
+/**
+ * Adds a text count to the input or textarea element
+ * @module
+ */
 /**
  * @class NidhuggCharacterCount
  * @extends HTMLElement
@@ -8,7 +11,7 @@
  * @property maxlength - Max length allowed for the input
  *
  */
-export default class TextCountTracker extends HTMLElement {
+class NidhuggTextCountTracker extends HTMLElement {
 	static {
 		customElements.define("nidhugg-character-count", this);
 	}

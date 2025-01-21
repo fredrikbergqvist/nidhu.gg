@@ -78,9 +78,9 @@ class NidhuggBackToTop extends HTMLElement {
 	}
 }
 
-"use strict";
 
-export default class TextCountTracker extends HTMLElement {
+
+class NidhuggTextCountTracker extends HTMLElement {
 	static {
 		customElements.define("nidhugg-character-count", this);
 	}
