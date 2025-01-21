@@ -28,7 +28,7 @@ export async function WriteMinorUpdate() {
 	const currentVersion = await GetCurrentVersion();
 	const currentMinor = currentVersion[1];
 	const newMinor = parseInt(currentMinor) + 1;
-	const newVersion = `${currentVersion[0]}.${newMinor}.0}`;
+	const newVersion = `${currentVersion[0]}.${newMinor}.0`;
 	return writeNewVersion(newVersion);
 }
 
@@ -36,7 +36,7 @@ export async function WriteMajorUpdate() {
 	const currentVersion = await GetCurrentVersion();
 	const currentMajor = currentVersion[0];
 	const newMajor = parseInt(currentMajor) + 1;
-	const newVersion = `${newMajor}.0.0}`;
+	const newVersion = `${newMajor}.0.0`;
 	return writeNewVersion(newVersion);
 }
 
