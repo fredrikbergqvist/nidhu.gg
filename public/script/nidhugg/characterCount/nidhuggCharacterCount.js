@@ -4,7 +4,11 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _TextCountTracker_instances, _a, _TextCountTracker_InputEl_get, _TextCountTracker_CharacterCount_get, _TextCountTracker_CharacterCountElement_get, _TextCountTracker_MaxLength_get, _TextCountTracker_UpdateCount;
+var _NidhuggTextCountTracker_instances, _a, _NidhuggTextCountTracker_InputEl_get, _NidhuggTextCountTracker_CharacterCount_get, _NidhuggTextCountTracker_CharacterCountElement_get, _NidhuggTextCountTracker_MaxLength_get, _NidhuggTextCountTracker_UpdateCount;
+/**
+ * Adds a text count to the input or textarea element
+ * @module
+ */
 /**
  * @class NidhuggCharacterCount
  * @extends HTMLElement
@@ -14,26 +18,26 @@ var _TextCountTracker_instances, _a, _TextCountTracker_InputEl_get, _TextCountTr
  * @property maxlength - Max length allowed for the input
  *
  */
-class TextCountTracker extends HTMLElement {
+class NidhuggTextCountTracker extends HTMLElement {
     constructor() {
         super();
-        _TextCountTracker_instances.add(this);
+        _NidhuggTextCountTracker_instances.add(this);
     }
     populateElements() {
         const divElement = document.createElement("div");
         divElement.id = "characterCount";
         divElement.classList.add("nidhugg-character-count");
-        divElement.textContent = `${__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_CharacterCount_get)}${__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_MaxLength_get) ? "/" + __classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_MaxLength_get) : ""} characters`;
+        divElement.textContent = `${__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_CharacterCount_get)}${__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_MaxLength_get) ? "/" + __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_MaxLength_get) : ""} characters`;
         this.append(divElement);
-        if (__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_InputEl_get)) {
-            __classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_InputEl_get).addEventListener("input", __classPrivateFieldGet(this, _TextCountTracker_instances, "m", _TextCountTracker_UpdateCount).bind(this));
+        if (__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_InputEl_get)) {
+            __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_InputEl_get).addEventListener("input", __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "m", _NidhuggTextCountTracker_UpdateCount).bind(this));
         }
     }
     connectedCallback() {
         this.populateElements();
     }
 }
-_a = TextCountTracker, _TextCountTracker_instances = new WeakSet(), _TextCountTracker_InputEl_get = function _TextCountTracker_InputEl_get() {
+_a = NidhuggTextCountTracker, _NidhuggTextCountTracker_instances = new WeakSet(), _NidhuggTextCountTracker_InputEl_get = function _NidhuggTextCountTracker_InputEl_get() {
     const textArea = this.querySelector("textarea");
     if (textArea) {
         return textArea;
@@ -43,23 +47,22 @@ _a = TextCountTracker, _TextCountTracker_instances = new WeakSet(), _TextCountTr
         return inputElement;
     }
     console.warn("No input or textarea element found to track text count");
-}, _TextCountTracker_CharacterCount_get = function _TextCountTracker_CharacterCount_get() {
-    if (!__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_InputEl_get)) {
+}, _NidhuggTextCountTracker_CharacterCount_get = function _NidhuggTextCountTracker_CharacterCount_get() {
+    if (!__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_InputEl_get)) {
         return 0;
     }
-    return __classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_InputEl_get).value.length;
-}, _TextCountTracker_CharacterCountElement_get = function _TextCountTracker_CharacterCountElement_get() {
+    return __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_InputEl_get).value.length;
+}, _NidhuggTextCountTracker_CharacterCountElement_get = function _NidhuggTextCountTracker_CharacterCountElement_get() {
     return this.querySelector("#characterCount");
-}, _TextCountTracker_MaxLength_get = function _TextCountTracker_MaxLength_get() {
+}, _NidhuggTextCountTracker_MaxLength_get = function _NidhuggTextCountTracker_MaxLength_get() {
     return this.getAttribute("maxlength");
-}, _TextCountTracker_UpdateCount = function _TextCountTracker_UpdateCount() {
-    if (!__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_CharacterCountElement_get)) {
+}, _NidhuggTextCountTracker_UpdateCount = function _NidhuggTextCountTracker_UpdateCount() {
+    if (!__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_CharacterCountElement_get)) {
         return;
     }
-    __classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_CharacterCountElement_get).textContent = `${__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_CharacterCount_get)}${__classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_MaxLength_get) ? "/" + __classPrivateFieldGet(this, _TextCountTracker_instances, "a", _TextCountTracker_MaxLength_get) : ""} characters`;
+    __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_CharacterCountElement_get).textContent = `${__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_CharacterCount_get)}${__classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_MaxLength_get) ? "/" + __classPrivateFieldGet(this, _NidhuggTextCountTracker_instances, "a", _NidhuggTextCountTracker_MaxLength_get) : ""} characters`;
 };
 (() => {
     customElements.define("nidhugg-character-count", _a);
 })();
-TextCountTracker.observedAttributes = ["maxlength"];
-export default TextCountTracker;
+NidhuggTextCountTracker.observedAttributes = ["maxlength"];
